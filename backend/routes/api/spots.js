@@ -36,7 +36,8 @@ router.get('/current', requireAuth, async (req, res) => {
     return res.json(result);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500)
+    return res.json({ error: 'Internal Server Error' });
   }
 });
 
@@ -58,9 +59,8 @@ router.get('/:spotId', async (req, res) => {
     });
 
     if (!item) {
-      return res.status(404).json({
-        message: "Spot couldn't be found"
-      });
+      res.status(404)
+      return res.json({ message: "Spot couldn't be found" });
     }
 
     let spot = item.toJSON();
@@ -82,7 +82,8 @@ router.get('/:spotId', async (req, res) => {
     return res.json(spot);
   } catch (error) {
     console.error(error);
-    return res.status(500).json({ error: 'Internal Server Error' });
+    res.status(500)
+    return res.json({ error: 'Internal Server Error' });
   }
 });
 
@@ -188,7 +189,29 @@ router.post('/', requireAuth, async (req, res) => {
       price
   })
 
-  return res.status(201).json(newSpot);
+  res.status(201)
+  return res.json(newSpot);
+});
+
+// Delete a Spot
+router.delete('/:spotId', requireAuth, async (req, res) => {
+  const { spotId } = req.params;
+  const spot = await Spot.findOne({
+      where: { id: spotId, ownerId: req.user.id }
+  });
+
+  const realSpot = await Spot.findByPk(spotId);
+  if (!realSpot) {
+    res.status(404);
+    return res.json({ message: "Spot couldn't be found" });
+  }
+  if (!spot) {
+    res.status(403);
+    return res.json({ message: "Only the owner can delete this spot" });
+  }
+
+  await spot.destroy();
+  return res.json({ message: "Successfully deleted" });
 });
 
 // Edit a Spot
@@ -205,10 +228,12 @@ router.put('/:spotId', requireAuth, async (req, res) => {
   });
 
   if(!exists) {
-      return res.status(404).json({message: "Spot couldn't be found"});
+      res.status(404);
+      return res.json({message: "Spot couldn't be found"});
   };
   if(!spot) {
-      return res.status(403).json({message: "Only the owner can update this spot"})
+      res.status(403);
+      return res.json({message: "Only the owner can update this spot"});
   };
 
   const errors = {};
