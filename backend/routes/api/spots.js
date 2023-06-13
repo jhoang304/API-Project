@@ -119,7 +119,10 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
   const { spotId } = req.params;
   const userId = req.user.id;
   const spot = await Spot.findOne({
-      where: { id: spotId, ownerId: userId }
+      where: {
+        id: spotId,
+        ownerId: userId
+      }
   });
   const findSpot = await Spot.findByPk(spotId);
 
@@ -188,7 +191,61 @@ router.post('/', requireAuth, async (req, res) => {
   return res.status(201).json(newSpot);
 });
 
+// Edit a Spot
+router.put('/:spotId', requireAuth, async (req, res) => {
+  const { address, city, state, country, lat, lng, name, description, price } = req.body;
+  const { spotId } = req.params;
 
+  const exists = await Spot.findByPk(spotId);
+  const spot = await Spot.findOne({
+      where: {
+        id: spotId,
+        ownerId: req.user.id
+      }
+  });
+
+  if(!exists) {
+      return res.status(404).json({message: "Spot couldn't be found"});
+  };
+  if(!spot) {
+      return res.status(403).json({message: "Only the owner can update this spot"})
+  };
+
+  const errors = {};
+  if (!address) errors.address = "Street address is required";
+  if (!city) errors.city = "City is required";
+  if (!state) errors.state = "State is required";
+  if (!country) errors.country = "Country is required";
+  if (!lat || isNaN(lat)) errors.lat = "Latitude is not valid";
+  if (!lng || isNaN(lng)) errors.lng = "Longitude is not valid";
+  if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
+  if (!description) errors.description = "Description is required";
+  if (!price) errors.price = "Price per day is required";
+
+  if (Object.keys(errors).length > 0) {
+      return res.status(400).json({
+          message: "Bad Request",
+          errors
+      });
+  }
+
+  const updatedSpot = {
+      address,
+      city,
+      country,
+      state,
+      lat,
+      lng,
+      name,
+      description,
+      price,
+      updatedAt: new Date()
+  };
+
+  await spot.update(updatedSpot);
+
+  return res.json(spot);
+});
 
 
 module.exports = router;
