@@ -122,11 +122,10 @@ router.post('/', requireAuth, async (req, res) => {
   if (!city) errors.city = "City is required";
   if (!state) errors.state = "State is required";
   if (!country) errors.country = "Country is required";
-  if (!lat) errors.lat = "Latitude is not valid";
-  if (!lng) errors.lng = "Longitude is not valid";
+  if (!lat || isNaN(lat)) errors.lat = "Latitude is not valid";
+  if (!lng || isNaN(lng)) errors.lng = "Longitude is not valid";
   if (!name || name.length > 50) errors.name = "Name must be less than 50 characters";
   if (!description) errors.description = "Description is required";
-  if(description.length < 30) errors.description = "Description needs a minimum of 30 characters"
   if (!price || price < 1) errors.price = "Price per day is required";
 
   if (Object.keys(errors).length > 0) {
