@@ -4,6 +4,7 @@ const router = express.Router();
 const { requireAuth } = require('../../utils/auth');
 const { User, Spot, SpotImage, Review, ReviewImage, Booking } = require('../../db/models');
 
+// Get all Reviews of the Current User
 router.get('/current', requireAuth, async (req, res) => {
     const id = req.user.id;
     const reviews = await Review.findAll({
@@ -33,7 +34,7 @@ router.get('/current', requireAuth, async (req, res) => {
         spot.previewImage = 'none';
         const prevImg = spot.SpotImages.find(el => el.preview === true);
         if (prevImg) {
-          spot.previewImage = prevImg.url;
+            spot.previewImage = prevImg.url;
         }
         delete spot.SpotImages;
         return reviewData;
