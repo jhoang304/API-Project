@@ -182,6 +182,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
     return res.json(resData);
 });
 
+// Create a Review for a Spot based on the Spot's id
 router.post('/:spotId/reviews', requireAuth, async (req, res) => {
     const { review, stars } = req.body;
     const spotId = parseInt(req.params.spotId);

@@ -14,7 +14,7 @@ module.exports = {
       {
         spotId: 1,
         url: 'fake url 1',
-        preview: false
+        preview: true
       },
       {
         spotId: 2,
@@ -24,7 +24,7 @@ module.exports = {
       {
         spotId: 3,
         url: 'fake url 3',
-        preview: false
+        preview: true
       },
       {
         spotId: 4,
@@ -34,7 +34,7 @@ module.exports = {
       {
         spotId: 5,
         url: 'fake url 5',
-        preview: false
+        preview: true
       }
     ], {});
     /**
