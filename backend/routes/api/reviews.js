@@ -76,4 +76,40 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
     return res.json(newImg)
 });
 
+router.put('/:reviewId', requireAuth, async (req, res) => {
+    const { reviewId } = req.params;
+    const { review, stars } = req.body;
+    const user = req.user.id;
+    const userReview = await Review.findByPk(reviewId);
+
+    if(!userReview) {
+        res.status(404);
+        return res.json({ "message": "Review couldn't be found" });
+    }
+
+    if(user !== userReview.userId) {
+        res.status(403);
+        return res.json({ message: "Only the owner can update this review" });
+    };
+
+    const errors = {};
+    if(!review) errors.review = "Review text is required";
+    if(!stars || stars < 1 || stars > 5) errors.stars = "Stars must be an integer from 1 to 5";
+    if (Object.keys(errors).length > 0) {
+        return res.status(400).json({
+            message: "Bad Request",
+            errors
+        });
+    };
+
+    const updatedRev = {
+        review,
+        stars,
+        updatedAt: new Date()
+    };
+    await userReview.update(updatedRev);
+
+    return res.json(userReview);
+});
+
 module.exports = router;
