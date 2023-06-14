@@ -43,6 +43,7 @@ router.get('/current', requireAuth, async (req, res) => {
     return res.json({Reviews: reviewsList});
 });
 
+// Add an Image to a Review based on the Review's id
 router.post('/:reviewId/images', requireAuth, async (req, res) => {
     const { reviewId } = req.params;
     const { url } = req.body;
@@ -76,6 +77,29 @@ router.post('/:reviewId/images', requireAuth, async (req, res) => {
     return res.json(newImg)
 });
 
+// Delete a Review
+router.delete('/:reviewId', requireAuth, async (req, res) => {
+    const { reviewId } = req.params;
+    const user = req.user.id;
+    const userReview = await Review.findByPk(reviewId);
+
+    if(!userReview) {
+        res.status(404);
+        return res.json({ message: "Review couldn't be found" });
+    }
+
+    //must be current user
+    if(user !== userReview.userId) {
+        res.status(403);
+        return res.json({ message: "Only the owner can delete this review" });
+    };
+
+    await userReview.destroy();
+
+    return res.json({ message: "Successfully deleted" });
+});
+
+// Edit a Review
 router.put('/:reviewId', requireAuth, async (req, res) => {
     const { reviewId } = req.params;
     const { review, stars } = req.body;
