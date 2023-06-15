@@ -289,7 +289,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
         });
     }
 
-    const currBookings = await Booking.findAll({
+    const currentBookings = await Booking.findAll({
         where: {
             spotId: spotId
         }
@@ -298,7 +298,7 @@ router.post('/:spotId/bookings', requireAuth, async (req, res) => {
     const startDateTime = new Date(startDate).getTime();
     const endDateTime = new Date(endDate).getTime();
 
-    const conflictingBooking = currBookings.find(booking => {
+    const conflictingBooking = currentBookings.find(booking => {
         const bookingStartDate = new Date(booking.startDate).getTime();
         const bookingEndDate = new Date(booking.endDate).getTime();
 
