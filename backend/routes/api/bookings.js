@@ -127,6 +127,7 @@ router.delete("/:bookingId", requireAuth, async (req, res) => {
     const userId = req.user.id;
     const bookingId = parseInt(req.params.bookingId);
     let booking = await Booking.findByPk(bookingId);
+    let spot = await Spot.findByPk(booking.spotId)
 
     if (!booking) {
       res.status(404);
@@ -135,7 +136,7 @@ router.delete("/:bookingId", requireAuth, async (req, res) => {
 
     const currentDate = new Date();
 
-    if (userId === booking.userId) {
+    if (userId === booking.userId || userId === spot.ownerId) {
         let bookingStartDate = new Date(new Date(booking.dataValues.startDate).toUTCString());
         if (bookingStartDate.getTime() < currentDate.getTime()) {
             res.status(403);
