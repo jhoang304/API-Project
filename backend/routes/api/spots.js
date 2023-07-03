@@ -220,7 +220,10 @@ router.get('/', async (req, res) => {
     const spots = await Spot.findAll({
     include: [
         { model: Review },
-        { model: SpotImage }
+        {
+            model: SpotImage,
+            where: { preview: true }
+        }
         ],
         where: query,
         ...pagination

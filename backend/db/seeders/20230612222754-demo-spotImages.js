@@ -13,27 +13,27 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       {
         spotId: 1,
-        url: 'fake url 1',
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125517878268006582/teahouse_spotimage.jpg',
         preview: true
       },
       {
         spotId: 2,
-        url: 'fake url 2',
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125517878268006582/teahouse_spotimage.jpg',
         preview: true
       },
       {
         spotId: 3,
-        url: 'fake url 3',
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125517878268006582/teahouse_spotimage.jpg',
         preview: true
       },
       {
         spotId: 4,
-        url: 'fake url 4',
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125517878268006582/teahouse_spotimage.jpg',
         preview: true
       },
       {
         spotId: 5,
-        url: 'fake url 5',
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125517878268006582/teahouse_spotimage.jpg',
         preview: true
       }
     ], {});

@@ -19,7 +19,7 @@ module.exports = {
         country: "United States of America",
         lat: 29.749907,
         lng: -95.358421,
-        name: "Fake House",
+        name: "Teahouse",
         description: "This is a fake house",
         price: 112
       },
