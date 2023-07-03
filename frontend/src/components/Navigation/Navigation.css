@@ -1,3 +1,41 @@
 .profile-dropdown.hidden {
     display: none;
 }
+
+.NavBar {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid rgb(201, 201, 201);
+    padding: 20px
+}
+
+/* .fa-dragon {
+    font-size: 40px;
+    color: red;
+} */
+.fa-glass {
+    font-size: 40px;
+    color: blue;
+}
+
+.Home-Icon {
+    display: flex;
+    text-decoration: none;
+    gap: 5px;
+    align-items: center;
+    color: red;
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+.userOptions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px
+}
+
+#CreateNewSpot {
+    text-decoration: none;
+    color: rgb(2, 90, 61);
+}
