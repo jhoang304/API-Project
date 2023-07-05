@@ -17,8 +17,23 @@ module.exports = {
         preview: true
       },
       {
+        spotId: 1,
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125880180406243368/1.jpg',
+        preview: false
+      },
+      {
+        spotId: 1,
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125880180779524136/2.jpg',
+        preview: false
+      },
+      {
+        spotId: 1,
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125880181081505823/3.jpg',
+        preview: false
+      },
+      {
         spotId: 2,
-        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125517878268006582/teahouse_spotimage.jpg',
+        url: 'https://cdn.discordapp.com/attachments/320286625521336341/1125881243750375527/preview.jpg',
         preview: true
       },
       {

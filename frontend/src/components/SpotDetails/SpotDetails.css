@@ -1,0 +1,122 @@
+.reserveButton {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.starRating {
+    margin-right: 10px;
+}
+
+.reviews {
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-reviews {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reserve-container {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 20px;
+    width: 300px;
+    margin-right: 15px;
+}
+
+.belowImages-info {
+    margin: 15px;
+}
+
+.belowImages {
+    display: flex;
+    justify-content: space-between;
+}
+
+.description {
+    font-size: 14px;
+    margin: 15px;
+}
+
+.preview-image {
+    max-width: 500px;
+    display: flex;
+}
+
+.preview-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.other-image {
+    width: 44%;
+    object-fit: cover;
+
+}
+
+.images-container {
+    margin-bottom: 25px;
+    display: flex;
+    max-width: 1000px;
+    margin-left: 30px;
+}
+
+.other-images {
+    display: flex;
+    max-width: 500px;
+    flex-flow: row wrap;
+}
+
+.other-image {
+    margin: 2px 2px 2px 3px;
+    flex-basis: calc(50%-20px)
+}
+
+.other-image img {
+    width: 100%;
+    height: auto;
+}
+
+.location {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.hostInfo {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+.name  {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 15px
+}
+
+#main-img {
+    width: 500px;
+    height: 500px;
+    /* border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px; */
+}
+
+/* #img-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    padding-left: 5px;
+    width: 500px;
+    height: 500px;
+    row-gap: 5px;
+    column-gap: 5px;
+}
+
+#img-grid img{
+    width: 248px;
+    height: 248px;
+    object-fit: cover;
+} */

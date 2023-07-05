@@ -26,7 +26,7 @@ export const allSpotsThunk = () => async (dispatch) => {
 }
 
 export const singleSpotThunk = (spotId) => async (dispatch) => {
-    const res = await fetch(`/api/spots/${spotId}`)
+    const res = await csrfFetch(`/api/spots/${spotId}`)
     const spot = await res.json()
     if (res.ok) {
         dispatch(getSpotDetailAction(spot))
