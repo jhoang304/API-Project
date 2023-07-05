@@ -35,7 +35,7 @@
     gap: 15px
 }
 
-#CreateNewSpot {
+#NewSpot {
     text-decoration: none;
-    color: rgb(2, 90, 61);
+    margin-right: 5px;
 }

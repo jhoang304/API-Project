@@ -2,6 +2,9 @@ import { csrfFetch } from "./csrf"
 
 const GET_ALL_SPOTS = 'spots/spots'
 const GET_SPOT_DETAILS = 'spots/single_spot'
+const GET_USER_SPOTS='spots/currentUser'
+const DELETE_SPOT='spots/delete'
+const UPDATE_SPOT='spots/update'
 // const CREATE_SPOT = 'spots/create'
 // const ADD_IMAGE = 'spots/images/add'
 
@@ -13,6 +16,21 @@ const getAllSpotsAction = spots => ({
 const getSpotDetailAction = spot => ({
     type: GET_SPOT_DETAILS,
     spot
+})
+
+const getUserSpots = spots => ({
+    type: GET_USER_SPOTS,
+    spots
+})
+
+const updateSpot = spot => ({
+    type: UPDATE_SPOT,
+    spot
+})
+
+const deleteSpot = spotId => ({
+    type: DELETE_SPOT,
+    spotId
 })
 
 // const createImage = image => ({
@@ -30,6 +48,18 @@ export const allSpotsThunk = () => async (dispatch) => {
     const spots = await res.json();
     if (res.ok) {
         dispatch(getAllSpotsAction(spots["Spots"]))
+        return spots;
+    } else {
+        const errorData = await res.json()
+        return errorData
+    }
+}
+
+export const getUserSpotsThunk = () => async (dispatch) => {
+    const res = await csrfFetch('/api/spots/current')
+    const spots = await res.json();
+    if (res.ok) {
+        dispatch(getUserSpots(spots["Spots"]))
         return spots;
     } else {
         const errorData = await res.json()
@@ -87,6 +117,36 @@ export const createSpotThunk = (spot, owner, imagesArray) => async (dispatch) =>
     }
 }
 
+export const updateSpotThunk = (spot) => async (dispatch) => {
+    const res = await csrfFetch(`/api/spots/${spot.id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(spot)
+    });
+    if (res.ok) {
+        const updatedSpot = await res.json()
+        dispatch(updateSpot(updatedSpot))
+        return updatedSpot
+    } else {
+        const errorData = await res.json()
+        return errorData
+    }
+}
+
+export const deleteSpotThunk = (spotId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/spots/${spotId}`, {
+        method: 'DELETE'
+    })
+    if (res.ok) {
+        dispatch(deleteSpot(spotId))
+    } else {
+        const errorData = await res.json()
+        return errorData
+    }
+}
+
 // export const createImageThunk = (image, spotId) => async dispatch => {
 //     const res = await csrfFetch(`/api/spots/${spotId}/images`, {
 //         method: "POST",
@@ -121,6 +181,17 @@ export const spotReducer = (state =  {}, action) => {
         //     return newState;
         // case ADD_IMAGE:
         //     newState = {...state, singleSpot: {...state.singleSpot, spotImages: [action.image]}}
+        case GET_USER_SPOTS:
+            newState =  {...state, allSpots: action.spots}
+            return newState
+        case UPDATE_SPOT: {
+            newState = {...state, singleSpot: action.spot}
+            return newState
+        }
+        case DELETE_SPOT:
+            newState = {...state}
+            delete newState[action.spotId];
+            return newState
         default:
             return state
     }

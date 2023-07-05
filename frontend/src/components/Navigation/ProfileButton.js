@@ -85,6 +85,7 @@ import SignupFormModal from '../SignupFormModal';
 import './ProfileButton.css'
 import { useHistory } from 'react-router-dom'
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+// import { useModal } from "../../context/Modal";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();

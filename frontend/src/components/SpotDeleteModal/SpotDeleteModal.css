@@ -1,0 +1,47 @@
+#noDelete {
+    width: 100%;
+    background-color: #999999;
+    border: 1px solid #999999
+}
+
+#noDelete:hover {
+    opacity: 0.8;
+    background-color: black;
+    color: white;
+}
+
+#yesDelete {
+    width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #999999
+}
+
+#yesDelete:hover {
+    opacity: 0.8;
+    background-color: #FF5A5F;
+    color: white;
+}
+
+.deleteText {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.deleteHeader {
+    font-size: 18pt;
+    font-weight: bold;
+    text-align: center;
+}
+
+.deleteSpotContainer {
+    margin: 100px auto;
+    display: grid;
+    grid-auto-flow: row;
+    width: 350px;
+    align-items: center;
+    border-radius: 20px;
+    border: 1px solid black;
+    padding: 20px;
+    margin: 20px auto;
+}

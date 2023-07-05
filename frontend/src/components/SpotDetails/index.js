@@ -20,9 +20,16 @@ export default function SpotDetail() {
   }, [dispatch, spotId]);
 
   if (!spot) {
+    console.log("inside of the if spot statement", spot)
     return <div>Loading Spot...</div>;
   }
 
+  if (!spot.SpotImages) {
+    console.log("inside of the if spot images statement")
+    return <div>Loading Spot...</div>;
+  }
+  // console.log("outside the if spot statement", {spot, images: spot.SpotImages, details: spot.SpotImages[0]})
+  console.log("outside the if spot statement", {spot, images: spot.SpotImages})
   if (!reviews) {
     return <div>Loading Reviews...</div>
   }
