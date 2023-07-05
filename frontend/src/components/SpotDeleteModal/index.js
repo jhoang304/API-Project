@@ -12,7 +12,7 @@ export default function SpotDeleteModal ({spot}) {
     const history = useHistory();
 
     const handleSubmit = (e) => {
-        e.stopPropogation();
+        e.stopPropagation();
         e.preventDefault();
         setErrors({});
         return dispatch(deleteSpotThunk(spot.id))
