@@ -52,8 +52,9 @@ export default function SpotDetail() {
       <div className="belowImages">
         <div className="belowImages-info">
         <div className="hostInfo">
-            Hosted by {spot.Owner.firstName} {spot.Owner.lastName}{" "}
-        </div>
+            Hosted by {spot.Owner && spot.Owner.firstName}{" "}
+            {spot.Owner && spot.Owner.lastName}{" "}
+          </div>
         <div className="description"> {spot.description}</div>
         </div>
         <div className="reserve-container">

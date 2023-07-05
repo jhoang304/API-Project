@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
       });
     };
   };
-  
+
   Spot.init({
     ownerId: {
       type: DataTypes.INTEGER,
@@ -53,8 +53,14 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    lat: DataTypes.DECIMAL,
-    lng: DataTypes.DECIMAL,
+    lat: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
+    },
+    lng: {
+      type: DataTypes.DECIMAL,
+      allowNull: true
+    },
     name: DataTypes.STRING,
     description: DataTypes.STRING,
     price: {

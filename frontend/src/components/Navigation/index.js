@@ -25,10 +25,11 @@
 // export default Navigation;
 
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
+// import NewSpot from '../NewSpot';
 
 
 function Navigation({ isLoaded }) {
@@ -45,7 +46,7 @@ function Navigation({ isLoaded }) {
 
       {isLoaded && (
         <div className="userOptions">
-        {sessionUser && <Link to="/spots/new" id="CreateNewSpot">Create a New Spot</Link>}
+        {sessionUser && <NavLink to="/spots/new" id="NewSpot">Create a New Spot</NavLink>}
         <ProfileButton user={sessionUser} />
         </div>
       )}

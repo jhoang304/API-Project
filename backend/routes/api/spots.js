@@ -448,8 +448,24 @@ router.post('/', requireAuth, async (req, res) => {
         price
     });
 
+    const safeSpot = {
+        id: newSpot.id,
+        ownerId: newSpot.ownerId,
+        address: newSpot.address,
+        city: newSpot.city,
+        state: newSpot.state,
+        country: newSpot.country,
+        lat: newSpot.lat,
+        lng: newSpot.lng,
+        name: newSpot.name,
+        description: newSpot.description,
+        price: newSpot.price,
+        createdAt: newSpot.createdAt,
+        updatedAt: newSpot.updatedAt,
+      };
+
     res.status(201)
-    return res.json(newSpot);
+    return res.json(safeSpot);
 });
 
 // Delete a Spot
