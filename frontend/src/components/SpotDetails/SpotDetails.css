@@ -105,18 +105,36 @@
     border-bottom-left-radius: 20px; */
 }
 
-/* #img-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 2fr);
-    padding-left: 5px;
-    width: 500px;
-    height: 500px;
-    row-gap: 5px;
-    column-gap: 5px;
+.reviewsContainer {
+    margin: 15px;
+    border-top: 1px solid #999999;
 }
 
-#img-grid img{
-    width: 248px;
-    height: 248px;
-    object-fit: cover;
-} */
+.mainReviews {
+    display: flex;
+    margin-top: 15px;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.individualReview {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.createdAt {
+    color: #999999;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12pt;
+}
+
+.reviewDescription {
+    font-size: 14pt;
+}
+
+.reviewUser {
+    font-size: 14pt;
+    font-weight: bold;
+}

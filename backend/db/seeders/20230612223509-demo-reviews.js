@@ -14,8 +14,14 @@ module.exports = {
       {
         userId: 1,
         spotId: 1,
-        review: "fake review 1",
+        review: "tea is mid",
         stars: 3
+      },
+      {
+        userId: 2,
+        spotId: 1,
+        review: "dummy review",
+        stars: 4
       },
       {
         userId: 1,

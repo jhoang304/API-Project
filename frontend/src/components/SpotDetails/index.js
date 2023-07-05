@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { singleSpotThunk } from "../../store/spot";
+import { spotReviewsThunk } from "../../store/review";
 import { useParams } from "react-router-dom";
 import "./SpotDetails.css";
 
@@ -8,13 +9,22 @@ export default function SpotDetail() {
   const { spotId } = useParams();
   const dispatch = useDispatch();
   const spot = useSelector((state) => state.spot.singleSpot);
+  const reviews = useSelector((state) => state.review.reviews)
 
   useEffect(() => {
     dispatch(singleSpotThunk(spotId));
   }, [dispatch, spotId]);
 
+  useEffect(() => {
+    dispatch(spotReviewsThunk(spotId));
+  }, [dispatch, spotId]);
+
   if (!spot) {
-    return <div>Loading...</div>;
+    return <div>Loading Spot...</div>;
+  }
+
+  if (!reviews) {
+    return <div>Loading Reviews...</div>
   }
 
   const handleReserveClick = () => {
@@ -42,7 +52,7 @@ export default function SpotDetail() {
       <div className="belowImages">
         <div className="belowImages-info">
         <div className="hostInfo">
-          Hosted by {spot.Owner.firstName} {spot.Owner.lastName}{" "}
+            Hosted by {spot.Owner.firstName} {spot.Owner.lastName}{" "}
         </div>
         <div className="description"> {spot.description}</div>
         </div>
@@ -61,6 +71,23 @@ export default function SpotDetail() {
             Reserve Now
           </button>
         </div>
+      </div>
+      <div className="reviewsContainer">
+      <div className="mainReviews">
+              <div className="starRating">
+                <i className="fa-solid fa-star"></i>
+                {spot.avgStarRating}
+              </div>
+              <div className="reviewCount">{spot.numReviews} reviews</div>
+            </div>
+        {reviews &&
+          reviews.map((review) => (
+            <div className="individualReview" key={`review-${review.id}`}>
+              <div className="reviewUser">{review.User.firstName}</div>
+              <div className="createdAt">{review.createdAt}</div>
+              <div className="reviewDescription">{review.review}</div>
+            </div>
+          ))}
       </div>
     </div>
   );
