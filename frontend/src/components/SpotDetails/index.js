@@ -60,12 +60,27 @@ export default function SpotDetail() {
         <div className="reserve-container">
             <div className="price-reviews">
           <div className="price">${spot.price} night</div>
-          <div className="reviews">
+          {/* <div className="reviews">
           <div className="starRating">
             <i className="fa-solid fa-star"></i>
             {spot.avgStarRating}
           </div>
-          <div className="reviewCount">{spot.numReviews} reviews</div>
+          <div className="reviewCount">{spot.numReviews} reviews</div> */}
+          <div className={spot.numReviews === 0 ? "noReviews" : "reviews"}>
+              {spot.numReviews === 0 ? (
+                <div className="noReviews">
+                  <i className="fa-solid fa-star"></i>
+                  <div className="newListing">New</div>
+                </div>
+              ) : (
+                <div className="reviews">
+                <div className="starRating">
+                  <i className="fa-solid fa-star"></i>
+                  {spot.avgStarRating}
+                </div>
+                  <div className="reviewCount">{spot.numReviews} reviews</div>
+                </div>
+              )}
           </div>
           </div>
           <button className="reserveButton" onClick={handleReserveClick}>
@@ -74,13 +89,26 @@ export default function SpotDetail() {
         </div>
       </div>
       <div className="reviewsContainer">
-      <div className="mainReviews">
-              <div className="starRating">
+      {/* <div className="mainReviews">
+              <div className="starRating"> */}
+               <div className={spot.numReviews === 0 ? "noReviews" : "mainReviews"}>
+            {spot.numReviews === 0 ? (
+                 <div className="noReviews">
+                 <i className="fa-solid fa-star"></i>
+                 <div className="newListing">New</div>
+               </div>
+            ) : (
+                <div className="mainReviews">
+                <div className="starRating">
                 <i className="fa-solid fa-star"></i>
                 {spot.avgStarRating}
+                </div>
+                <div className="reviewCount">{spot.numReviews} reviews</div>
               </div>
-              <div className="reviewCount">{spot.numReviews} reviews</div>
-            </div>
+            //   <div className="reviewCount">{spot.numReviews} reviews</div>
+            // </div>
+            )}
+        </div>
         {reviews &&
           reviews.map((review) => (
             <div className="individualReview" key={`review-${review.id}`}>

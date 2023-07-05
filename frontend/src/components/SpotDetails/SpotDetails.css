@@ -16,6 +16,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    display: flex;
+    margin-top: 15px;
+    font-size: 14pt;
+    font-weight: bold;
 }
 
 .reserve-container {
@@ -110,6 +114,10 @@
     border-top: 1px solid #999999;
 }
 
+.hiddenReviewContainer {
+    display: none
+}
+
 .mainReviews {
     display: flex;
     margin-top: 15px;
@@ -121,6 +129,11 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
+}
+
+.noReviews {
+    display: flex;
+    align-items: center;
 }
 
 .createdAt {
