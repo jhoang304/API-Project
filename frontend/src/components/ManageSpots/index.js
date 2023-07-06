@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+// import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getUserSpotsThunk } from '../../store/spot'
 import './ManageSpots.css'
 import OpenModalButton from '../OpenModalButton'
@@ -9,7 +10,7 @@ import SpotDeleteModal from '../SpotDeleteModal'
 
 export default function ManageSpots () {
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
 	const spots = useSelector(state => state.spot.allSpots)
     console.log(spots)
 

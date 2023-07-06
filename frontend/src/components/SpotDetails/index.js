@@ -4,12 +4,17 @@ import { singleSpotThunk } from "../../store/spot";
 import { spotReviewsThunk } from "../../store/review";
 import { useParams } from "react-router-dom";
 import "./SpotDetails.css";
+import OpenModalButton from "../OpenModalButton";
+import CreateReviewModal from "../CreateReviewModal";
+import DeleteReviewModal from "../DeleteReviewModal";
 
 export default function SpotDetail() {
   const { spotId } = useParams();
   const dispatch = useDispatch();
   const spot = useSelector((state) => state.spot.singleSpot);
-  const reviews = useSelector((state) => state.review.reviews)
+  const reviews = useSelector((state) => state.review.reviews);
+  const user = useSelector((state) => state.review.reviews);
+  const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(singleSpotThunk(spotId));
@@ -112,6 +117,14 @@ export default function SpotDetail() {
             //   <div className="reviewCount">{spot.numReviews} reviews</div>
             // </div>
             )}
+            <div>
+              {sessionUser && sessionUser.id !== spot.ownerId && (!reviews.find((review) => review.userId === user.id)) &&
+               <OpenModalButton
+              //  id="deleteButton"
+               buttonText="Post Your Review"
+               modalComponent={<CreateReviewModal spot={spot} user={user} />}
+               />}
+            </div>
         </div>
         {reviews &&
           reviews.map((review) => (
@@ -119,6 +132,19 @@ export default function SpotDetail() {
               <div className="reviewUser">{review.User.firstName}</div>
               <div className="createdAt">{review.createdAt}</div>
               <div className="reviewDescription">{review.review}</div>
+              {/* {user && review.userId === user.id
+              && <OpenModalButton
+              buttonText="Delete Your Review"
+                modalComponent={<DeleteReviewModal spot={spot} review={review}
+                 />}
+              />
+              } */}
+              {sessionUser && sessionUser.id === review.userId && (
+              <OpenModalButton
+              buttonText="Delete Your Review"
+              modalComponent={<DeleteReviewModal spot={spot} review={review} />}
+              />
+              )}
             </div>
           ))}
       </div>
