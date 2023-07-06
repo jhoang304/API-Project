@@ -30,7 +30,7 @@
   }
 
   .spot img {
-    width: 100%;
+    width: 225px;
     height: 170px;
     object-fit: cover;
     border-radius: 10px;

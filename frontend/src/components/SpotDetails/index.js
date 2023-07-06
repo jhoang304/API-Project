@@ -42,7 +42,7 @@ export default function SpotDetail() {
 
   const convertedDate = (date) => {
     const newDate = new Date(date);
-    const style = { month: 'long', day: 'numeric' };
+    const style = { month: 'long', year: 'numeric' };
     const goodDate = newDate.toLocaleString('en-US', style);
     return goodDate;
   }
@@ -94,7 +94,8 @@ export default function SpotDetail() {
                   <i className="fa-solid fa-star"></i>
                   {spot.avgStarRating}
                 </div>
-                  <div className="reviewCount">{spot.numReviews} reviews</div>
+                  {/* <div className="reviewCount">{spot.numReviews} reviews</div> */}
+                  {spot.numReviews === 1 ? <div className="reviewCount">{spot.numReviews} review</div> : <div className="reviewCount">{spot.numReviews} reviews</div>}
                 </div>
               )}
           </div>
@@ -108,18 +109,22 @@ export default function SpotDetail() {
       {/* <div className="mainReviews">
               <div className="starRating"> */}
                <div className={spot.numReviews === 0 ? "noReviews" : "mainReviews"}>
-            {spot.numReviews === 0 ? (
+                {spot.numReviews === 0 ? (
+                 <div className="noReviewsContainer">
                  <div className="noReviews">
                  <i className="fa-solid fa-star"></i>
                  <div className="newListing">New</div>
-               </div>
-            ) : (
+                </div>
+                {sessionUser && sessionUser.id !== spot.ownerId && <div className="first">Be the first to post a review!</div>}
+                </div>
+                ) : (
                 <div className="mainReviews">
                 <div className="starRating">
                 <i className="fa-solid fa-star"></i>
                 {spot.avgStarRating}
                 </div>
-                <div className="reviewCount">{spot.numReviews} reviews</div>
+                {/* <div className="reviewCount">{spot.numReviews} reviews</div> */}
+                {spot.numReviews === 1 ? <div className="reviewCount">{spot.numReviews} review</div> : <div className="reviewCount">{spot.numReviews} reviews</div>}
               </div>
             //   <div className="reviewCount">{spot.numReviews} reviews</div>
             // </div>
