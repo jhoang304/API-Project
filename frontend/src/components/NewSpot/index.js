@@ -153,7 +153,7 @@ export default function CreateSpot() {
                 <div className="locationInfo">
                     <div className="locationHeader">Where's your place located?</div>
                     <div className="locationText">Guests will only get your exact address once they booked a reservation.</div>
-                <div className="inputContainer">
+                <div className="inputContainer">Country
                     <input
                     value={country}
                     type="text"
@@ -161,7 +161,7 @@ export default function CreateSpot() {
                     onChange={(e) => setCountry(e.target.value)}/>
                     {submitted && validationErrors.country && <p className="error">{validationErrors.country}</p>}
                 </div>
-                <div className="inputContainer">
+                <div className="inputContainer">Address
                     <input
                     value={address}
                     type="text"
@@ -170,7 +170,7 @@ export default function CreateSpot() {
                     {submitted && validationErrors.address && <p className="error">{validationErrors.address}</p>}
                 </div>
                 <div className="cityStateContainer">
-                    <div className="inputContainer">
+                    <div className="inputContainer">City
                     <input
                     value={city}
                     type="text"
@@ -178,7 +178,7 @@ export default function CreateSpot() {
                     onChange={(e) => setCity(e.target.value)}/>
                     {submitted && validationErrors.city && <p className="error">{validationErrors.city}</p>}
                     </div>
-                    <div className="inputContainer">
+                    <div className="inputContainer">State
                     <input
                     value={state}
                     type="text"
@@ -269,7 +269,9 @@ export default function CreateSpot() {
                     {submitted && validationErrors.image4 && <p className="error">{validationErrors.image4}</p>}
                 </div>
             </div>
+            <div className="submitContainer">
             <button type='submit' className="submit-button">Create Spot</button>
+            </div>
             </form>
         </div>
     )

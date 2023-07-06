@@ -55,18 +55,6 @@ function UpdateSpot() {
     if (!state) {
         errorsObject.state = "State is required"
     }
-    // if (!latitude) {
-    //     errorsObject.latitude = "Latitude is required"
-    // }
-    // if (!longitude) {
-    //     errorsObject.longitude = "Longitude is required"
-    // }
-    // if (isNaN(latitude)) {
-    //     errorsObject.latitude = "latitude must be a number";
-    // }
-    // if (isNaN(longitude)) {
-    //     errorsObject.longitude = "longitude must be a number";
-    // }
     if (description.length < 30) {
         errorsObject.description = "Description needs a minimum of 30 characters"
     }
@@ -119,7 +107,7 @@ function UpdateSpot() {
             <div className="locationInfo">
                 <div className="locationHeader">Where's your place located?</div>
                 <div className="locationText">Guests will only get your exact address once they booked a reservation.</div>
-            <div className="inputContainer">
+            <div className="inputContainer">Country
                 <input
                 value={country}
                 type="text"
@@ -127,7 +115,7 @@ function UpdateSpot() {
                 onChange={(e) => setCountry(e.target.value)}/>
                 {validationErrors.country && <p className="error">{validationErrors.country}</p>}
             </div>
-            <div className="inputContainer">
+            <div className="inputContainer">Address
                 <input
                 value={address}
                 type="text"
@@ -136,7 +124,7 @@ function UpdateSpot() {
                 {validationErrors.address && <p className="error">{validationErrors.address}</p>}
             </div>
             <div className="cityStateContainer">
-                <div className="inputContainer">
+                <div className="inputContainer">City
                 <input
                 value={city}
                 type="text"
@@ -144,7 +132,7 @@ function UpdateSpot() {
                 onChange={(e) => setCity(e.target.value)}/>
                 {validationErrors.city && <p className="error">{validationErrors.city}</p>}
                 </div>
-                <div className="inputContainer">
+                <div className="inputContainer">State
                 <input
                 value={state}
                 type="text"
@@ -153,24 +141,6 @@ function UpdateSpot() {
                 {validationErrors.state && <p className="error">{validationErrors.state}</p>}
                 </div>
             </div>
-            {/* <div className="latLongContainer">
-            <div className="inputContainer">Latitude
-                <input
-                value={latitude}
-                type="number"
-                placeholder="Latitude"
-                onChange={(e) => setLatitude(e.target.value)}/>
-                {validationErrors.latitude && <p className="error">{validationErrors.latitude}</p>}
-            </div>
-            <div className="inputContainer">Longitude
-                <input
-                value={longitude}
-                type="number"
-                placeholder="Longitude"
-                onChange={(e) => setLatitude(e.target.value)}/>
-                {validationErrors.longitude && <p className="error">{validationErrors.longitude}</p>}
-            </div>
-            </div> */}
             </div>
             <div className="descriptionInfo">
             <div className="descriptionHeader">Describe your place to guests</div>
@@ -199,8 +169,9 @@ function UpdateSpot() {
         <div className="priceInfo">
             <div className="priceHeader">Set a base price for your spot</div>
             <div className="priceText">Competitive pricing can help our listing stand out and rank higher in search results.</div>
-            <div className="inputContainer">
-            <i className="fa-solid fa-dollar-sign"></i>
+            {/* <div className="inputContainer">
+            <i className="fa-solid fa-dollar-sign"></i> */}
+            <div className="inputContainer price">$
                 <input
                 value={price}
                 type="number"
