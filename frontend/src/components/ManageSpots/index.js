@@ -44,13 +44,11 @@ export default function ManageSpots () {
             <Link to={`/spots/${spot.id}/edit`}>
                 <button id="updateButton">Update</button>
             </Link>
-            {/* <button id="deleteButton"> */}
                 <OpenModalButton
                 id="deleteButton"
                 buttonText="Delete"
                 modalComponent={<SpotDeleteModal spot={spot} />}
                 />
-            {/* </button> */}
           </div>
         </div>
         </Link>

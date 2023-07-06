@@ -13,7 +13,7 @@ export default function SpotDetail() {
   const dispatch = useDispatch();
   const spot = useSelector((state) => state.spot.singleSpot);
   const reviews = useSelector((state) => state.review.reviews);
-  const user = useSelector((state) => state.review.reviews);
+  // const user = useSelector((state) => state.review.reviews);
   const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
@@ -118,11 +118,11 @@ export default function SpotDetail() {
             // </div>
             )}
             <div>
-              {sessionUser && sessionUser.id !== spot.ownerId && (!reviews.find((review) => review.userId === user.id)) &&
+              {sessionUser && sessionUser.id !== spot.ownerId && (!reviews.find((review) => review.userId === sessionUser.id)) &&
                <OpenModalButton
               //  id="deleteButton"
                buttonText="Post Your Review"
-               modalComponent={<CreateReviewModal spot={spot} user={user} />}
+               modalComponent={<CreateReviewModal spot={spot} user={sessionUser} />}
                />}
             </div>
         </div>
