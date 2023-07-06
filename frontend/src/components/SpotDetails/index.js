@@ -158,7 +158,7 @@ export default function SpotDetail() {
               />
               )}
             </div>
-          ))}
+          )).reverse()}
       </div>
     </div>
   );
