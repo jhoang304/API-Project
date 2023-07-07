@@ -20,7 +20,7 @@ module.exports = {
         allowNull: false
       },
       address: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
         allowNull: false
       },
       city: {
@@ -48,7 +48,8 @@ module.exports = {
         allowNull: false
       },
       description: {
-        type: Sequelize.STRING
+        type: Sequelize.TEXT,
+        allowNull: false
       },
       price: {
         type: Sequelize.DECIMAL,
