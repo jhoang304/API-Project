@@ -4,7 +4,7 @@
 }
 
 .starRating {
-    margin-right: 10px;
+    margin-right: 7px;
 }
 
 .reviews {
@@ -153,4 +153,9 @@
 
 .first {
     margin-top: 15px;
+}
+
+.dot {
+    margin-right: 5px;
+    font-weight: bold;
 }
