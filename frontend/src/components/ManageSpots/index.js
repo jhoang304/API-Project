@@ -7,7 +7,6 @@
 // import OpenModalButton from '../OpenModalButton'
 // import SpotDeleteModal from '../SpotDeleteModal'
 
-
 // export default function ManageSpots () {
 //     const dispatch = useDispatch();
 //     // const history = useHistory();
@@ -93,9 +92,9 @@ export default function ManageSpots() {
           <div className="manageHeader">Manage Spots</div>
           {!spots.length && (
             <Link to="/spots/new">
-            <button className="addSpotButton">Create a New Spot</button>
+              <button className="addSpotButton">Create a New Spot</button>
             </Link>
-            )}
+          )}
           <div id="spots-container">
             {spots &&
               spots.map((spot) => (
@@ -103,11 +102,31 @@ export default function ManageSpots() {
                   <Link to={`/spots/${spot.id}`} key={`spot-${spot.id}`}>
                     <div className="spot">
                       <img src={spot.previewImage} alt="Spot Preview" />
-                      <h2>{spot.name}</h2>
+                      {/* <h2>{spot.name}</h2>
                       <p>
                         City: {spot.city}, State: {spot.state}
+                        {spot.city}, {spot.state}
                       </p>
-                      <p>${spot.price} night</p>
+                      <p>${spot.price} night</p> */}
+                      <div className="location-and-rating">
+                        <p>
+                          {spot.city}, {spot.state}
+                        </p>
+                        {spot.avgRating === null ? (
+                          <div className="reviews">
+                            <i className="fa-solid fa-star"></i>
+                            <div className="newListing">New</div>
+                          </div>
+                        ) : (
+                          <div className="reviews">
+                            <i className="fa-solid fa-star"></i>
+                            <div className="avgRating">{spot.avgRating}</div>
+                          </div>
+                        )}
+                      </div>
+                      <div className="price-container">
+                        <div className="price">${spot.price}</div> night
+                      </div>
                     </div>
                   </Link>
                   <div className="manageSpot-buttons">
