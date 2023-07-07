@@ -26,3 +26,9 @@
     font-weight: bold;
     margin: 10px
 }
+
+#spots-container {
+    display: flex;
+    margin-left: 15px;
+    justify-content: space-around;
+}

@@ -129,7 +129,9 @@ export default function SpotDetail() {
             //   <div className="reviewCount">{spot.numReviews} reviews</div>
             // </div>
             )}
-            <div>
+            {/* <div> */}
+            </div>
+            <div className="postReview">
               {sessionUser && sessionUser.id !== spot.ownerId && (!reviews.find((review) => review.userId === sessionUser.id)) &&
                <OpenModalButton
               //  id="deleteButton"
@@ -137,7 +139,7 @@ export default function SpotDetail() {
                modalComponent={<CreateReviewModal spot={spot} user={sessionUser} />}
                />}
             </div>
-        </div>
+        {/* </div> */}
         {reviews &&
           reviews.map((review) => (
             <div className="individualReview" key={`review-${review.id}`}>

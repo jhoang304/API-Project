@@ -114,6 +114,10 @@ function ProfileButton({ user }) {
 
   const closeMenu = () => setShowMenu(false);
 
+  const manageSpotButton = () => {
+    closeMenu();
+  }
+
   const logout = (e) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
@@ -135,7 +139,7 @@ function ProfileButton({ user }) {
             <li>Hello, {user.firstName}</li>
             <li>{user.email}</li>
             <li id="manage-spots">
-              <Link to="/spots/current">
+              <Link to="/spots/current" onClick={manageSpotButton}>
                 Manage Spots
               </Link>
             </li>
