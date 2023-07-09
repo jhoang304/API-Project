@@ -215,7 +215,7 @@ export default function CreateSpot() {
             <div className="priceInfo">
                 <div className="priceHeader">Set a base price for your spot</div>
                 <div className="priceText">Competitive pricing can help our listing stand out and rank higher in search results.</div>
-                <div className="inputContainer">
+                <div className="inputContainer" id="moneyContainer">
                 <i className="fa-solid fa-dollar-sign"></i>
                     <input
                     value={price}
