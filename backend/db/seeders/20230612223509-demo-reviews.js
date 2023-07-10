@@ -13,39 +13,39 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       {
         userId: 1,
-        spotId: 1,
-        review: "tea is mid",
-        stars: 3
-      },
-      {
-        userId: 2,
-        spotId: 1,
-        review: "dummy review",
+        spotId: 3,
+        review: "Their handmade boba is so good, but they put too much ice in their drinks",
         stars: 4
       },
       {
         userId: 1,
-        spotId: 2,
-        review: "fake review 2",
-        stars: 4
-      },
-      {
-        userId: 2,
-        spotId: 3,
-        review: "fake review 3",
-        stars: 4
-      },
-      {
-        userId: 2,
         spotId: 4,
-        review: "fake review 4",
-        stars: 5
+        review: "Great variety of milk teas",
+        stars: 4
+      },
+      {
+        userId: 2,
+        spotId: 1,
+        review: "Their milk tea is pretty good, but I have had better",
+        stars: 3
       },
       {
         userId: 3,
-        spotId: 5,
-        review: "fake review 5",
+        spotId: 2,
+        review: "Their house coffee is so delicious",
         stars: 5
+      },
+      {
+        userId: 1,
+        spotId: 5,
+        review: "I think Xing Fu Tang makes better boba",
+        stars: 3
+      },
+      {
+        userId: 2,
+        spotId: 6,
+        review: "You can never go wrong with the Lemon Honey Green Tea",
+        stars: 4
       },
     ], {});
     /**
@@ -63,7 +63,7 @@ module.exports = {
     options.tableName = 'Reviews';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      spotId: { [Op.in]: [1, 2, 3, 4, 5] }
+      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6] }
     }, {});
   }
 };

@@ -13,10 +13,7 @@
     font-size: 40px;
     color: red;
 } */
-.fa-glass {
-    font-size: 40px;
-    color: blue;
-}
+
 
 .Home-Icon {
     display: flex;
@@ -39,4 +36,9 @@
     text-decoration: none;
     margin-right: 10px;
     font-weight: bold;
+}
+
+#logo {
+    height: 40px;
+    width: 150px;
 }

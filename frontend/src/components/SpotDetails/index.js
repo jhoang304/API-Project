@@ -103,7 +103,7 @@ export default function SpotDetail() {
           </div>
           </div>
           <button className="reserveButton" onClick={handleReserveClick}>
-            Reserve
+            Reserve Now
           </button>
         </div>
       </div>

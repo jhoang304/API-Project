@@ -39,9 +39,7 @@ function Navigation({ isLoaded }) {
     <div className="NavBar">
 
       <NavLink exact to="/" className="Home-Icon">
-      {/* <i className="fa fa-dragon"></i> */}
-      <i class="fa-duotone fa-glass"></i>
-      bobabnb
+      <img id="logo" src="https://cdn.discordapp.com/attachments/320286625521336341/1127852221082652724/logo2.png" alt="logo"/>
       </NavLink>
 
       {isLoaded && (
