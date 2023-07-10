@@ -3,13 +3,13 @@
     display: grid;
     grid-auto-flow: row;
     grid-row-gap: 15px;
-    width: 350px;
+    width: 419px;
     align-items: center;
     border-radius: 20px;
     border: 1px solid black;
     padding: 20px;
     font-family: "Manrope", sans-serif;
-    margin: 20px auto;
+    margin: -3px auto;
 }
 
 .rating-input {
