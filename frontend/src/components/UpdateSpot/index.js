@@ -171,7 +171,7 @@ function UpdateSpot() {
             <div className="priceText">Competitive pricing can help our listing stand out and rank higher in search results.</div>
             {/* <div className="inputContainer">
             <i className="fa-solid fa-dollar-sign"></i> */}
-            <div className="inputContainer price">$
+            <div className="priceContainer">$
                 <input
                 value={price}
                 type="number"
@@ -180,7 +180,9 @@ function UpdateSpot() {
                 {validationErrors.price && <p className="error">{validationErrors.price}</p>}
             </div>
         </div>
-        <button type='submit' className="submit">Update Your Spot</button>
+        <div className='submitContainer'>
+        <button type='submit' className="submit-button">Update Your Spot</button>
+        </div>
         </form>
     </div>
 )

@@ -161,11 +161,11 @@ export default function CreateSpot() {
                     onChange={(e) => setCountry(e.target.value)}/>
                     {submitted && validationErrors.country && <p className="error">{validationErrors.country}</p>}
                 </div>
-                <div className="inputContainer">Address
+                <div className="inputContainer">Street Address
                     <input
                     value={address}
                     type="text"
-                    placeholder="Street Address"
+                    placeholder="Address"
                     onChange={(e) => setAddress(e.target.value)}/>
                     {submitted && validationErrors.address && <p className="error">{validationErrors.address}</p>}
                 </div>
@@ -182,7 +182,7 @@ export default function CreateSpot() {
                     <input
                     value={state}
                     type="text"
-                    placeholder="State"
+                    placeholder="STATE"
                     onChange={(e) => setState(e.target.value)}/>
                     {submitted && validationErrors.state && <p className="error">{validationErrors.state}</p>}
                     </div>

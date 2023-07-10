@@ -48,6 +48,7 @@ export default function SpotDetail() {
   }
 
   return (
+    <div id="page">
     <div className="spot-container">
       <div className="name"> {spot.name}</div>
       <div className="location">
@@ -102,7 +103,7 @@ export default function SpotDetail() {
           </div>
           </div>
           <button className="reserveButton" onClick={handleReserveClick}>
-            Reserve Now
+            Reserve
           </button>
         </div>
       </div>
@@ -163,6 +164,7 @@ export default function SpotDetail() {
               )}
             </div>
           )).reverse()}
+      </div>
       </div>
     </div>
   );

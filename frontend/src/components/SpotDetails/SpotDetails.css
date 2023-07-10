@@ -1,20 +1,15 @@
 .reserveButton {
     width: 100%;
-    background-color: rgb(218, 156, 156);
+    background-color: rgb(223, 107, 107);
     margin-top: 20px;
-    padding: 5px 10px;
+    padding: 15px 10px;
     border-radius: 5px;
     color: white;
     border: none;
     cursor: pointer;
     border: 1px solid #000000;
     margin-top: 15px;
-}
-
-.reserveButton:hover {
-    opacity: 0.8;
-    background-color: rgb(213, 151, 151);
-    color: white;
+    font-size: 15px;
 }
 
 .starRating {
@@ -137,7 +132,6 @@
 .mainReviews {
     display: flex;
     margin-left: 3px;
-    font-weight: bold;
 }
 
 .individualReview {
@@ -224,6 +218,12 @@
     color: white;
 }
 
+#page {
+    display: flex;
+    justify-content: center;
+}
+
 /* .spot-container {
     max-width: 1000px;
+    justify-content: center;
 } */
