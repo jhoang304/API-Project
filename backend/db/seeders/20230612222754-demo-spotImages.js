@@ -120,6 +120,56 @@ module.exports = {
         spotId: 6,
         url: 'https://cdn.discordapp.com/attachments/320286625521336341/1127841771053928458/2.jpg',
         preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/lbD884_a47Z0sRomxnpypg/o.jpg',
+        preview: true
+      },
+      {
+        spotId: 7,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/aw5-wS-IsFnFHilaBjvj4Q/348s.jpg',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/xzAVmrnXLGU_NaNr5qOK8Q/o.jpg',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/j0ayp-nzbSD_0aavnekDXA/348s.jpg',
+        preview: false
+      },
+      {
+        spotId: 7,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/-UKYRYj4widlDC7wXD6SfA/348s.jpg',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/xeE5FDE4pCoLpgjJBAw_cQ/o.jpg',
+        preview: true
+      },
+      {
+        spotId: 8,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/Y5lg70HTrb_924YLuEjKpg/348s.jpg',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/UYiLf-fULsJ6-xz-ZasXNQ/348s.jpg',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/LelQtCLFUa2qmFLfz6u7aA/348s.jpg',
+        preview: false
+      },
+      {
+        spotId: 8,
+        url: 'https://s3-media0.fl.yelpcdn.com/bphoto/dQABA5N68AmarmNQrSwgnQ/348s.jpg',
+        preview: false
       }
     ], {});
     /**
@@ -137,7 +187,7 @@ module.exports = {
     options.tableName = 'SpotImages';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6] }
+      spotId: { [Op.in]: [1, 2, 3, 4, 5, 6, 7, 8] }
     }, {});
   }
 };

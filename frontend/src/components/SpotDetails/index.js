@@ -93,7 +93,7 @@ export default function SpotDetail() {
                 <div className="reviews">
                 <div className="starRating">
                   <i className="fa-solid fa-star"></i>
-                  {spot.avgStarRating}
+                  {spot.avgStarRating.toFixed(2)}
                 </div>
                 <div className="dot">·</div>
                   {/* <div className="reviewCount">{spot.numReviews} reviews</div> */}
@@ -123,7 +123,7 @@ export default function SpotDetail() {
                 <div className="mainReviews">
                 <div className="starRating">
                 <i className="fa-solid fa-star"></i>
-                {spot.avgStarRating}
+                {spot.avgStarRating.toFixed(2)}
                 </div>
                 <div className="dot">·</div>
                 {/* <div className="reviewCount">{spot.numReviews} reviews</div> */}
@@ -144,7 +144,7 @@ export default function SpotDetail() {
             </div>
         {/* </div> */}
         {reviews &&
-          reviews.map((review) => (
+          [...reviews].reverse().map((review) => (
             <div className="individualReview" key={`review-${review.id}`}>
               <div className="reviewUser">{review.User.firstName}</div>
               <div className="createdAt">{convertedDate(review.createdAt)}</div>
@@ -163,7 +163,7 @@ export default function SpotDetail() {
               />
               )}
             </div>
-          )).reverse()}
+          ))}
       </div>
       </div>
     </div>

@@ -32,7 +32,7 @@ export default function SpotsIndex() {
                 ) : (
                   <div className="reviews">
                     <i className="fa-solid fa-star"></i>
-                    <div className="avgRating">{spot.avgRating}</div>
+                    <div className="avgRating">{spot.avgRating.toFixed(2)}</div>
                   </div>
                 )}
               </div>

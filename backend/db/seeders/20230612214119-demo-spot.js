@@ -83,6 +83,30 @@ module.exports = {
         description: "Happy Lemon is a world-leading beverage chain founded in 2006 by the Yummy-Town Group, a publicly listed tea culture company originating in Taiwan. They are the elite pioneers who originally brought and expanded the tea culture to Mainland China and Hong Kong.",
         price: 54
       },
+      {
+        ownerId: 4,
+        address: "414 S Western Ave",
+        city: "Los Angeles",
+        state: "California",
+        country: "United States of America",
+        lat: 34.06686,
+        lng: -118.30868,
+        name: "Boba Bear",
+        description: "Boba teas, hookah, smoothies, crêpes & light Korean bites offered at tables or in a lounge area.",
+        price: 83
+      },
+      {
+        ownerId: 4,
+        address: "8055 Clairemont Mesa Blvd Ste 100",
+        city: "San Diego",
+        state: "California",
+        country: "United States of America",
+        lat: 32.83285954989467,
+        lng: -117.1499956460283,
+        name: "Urban Bubble",
+        description: "'Yogurt Series' Urban Bubble is locally owned and operated here in San Diego. We plan on having our grand opening Fall of 2022",
+        price: 49
+      }
     ], {});
     /**
      * Add seed commands here.
@@ -99,7 +123,7 @@ module.exports = {
     options.tableName = "Spots";
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      ownerId: { [Op.in]: [1, 2, 3] }
+      ownerId: { [Op.in]: [1, 2, 3, 4] }
     }, {});
     /**
      * Add commands to revert seed here.
