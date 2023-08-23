@@ -18,6 +18,7 @@ export default function SpotDetail() {
 
   useEffect(() => {
     dispatch(singleSpotThunk(spotId));
+    console.log("spot:", spot);
   }, [dispatch, spotId]);
 
   useEffect(() => {
@@ -57,7 +58,21 @@ export default function SpotDetail() {
       </div>
       <div className="images-container">
         <div className="preview-image">
-        <img id="main-img" src={spot.SpotImages[0].url} alt="Preview Pic of Spot"/>
+        {spot.SpotImages.some(image => image.preview === true) ? (
+              <img
+                id="main-img"
+                src={spot.SpotImages.find(image => image.preview === true).url}
+                alt="Preview Pic of Spot"
+              />
+            ) : (
+              <img
+                id="main-img"
+                src="https://cdn.discordapp.com/attachments/320286625521336341/1125935356320161852/no_photo.png"
+                alt="No Preview Available"
+              />
+            )}
+          </div>
+          <div className="other-images">
         </div>
         <div className="other-images">
         {spot.SpotImages[1] ? (<img className="other-image" src={spot.SpotImages[1].url} alt="Pic of Spot"/>) : (<img className="other-image" src="https://cdn.discordapp.com/attachments/320286625521336341/1125935356320161852/no_photo.png" alt="Pic of Spot"/>)}

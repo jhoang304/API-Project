@@ -39,7 +39,7 @@
 
 .belowImages-info {
     margin: 15px;
-    width: 610px; 
+    width: 610px;
 }
 
 .belowImages {
@@ -124,6 +124,7 @@
     margin: 15px;
     margin-left: 21px;
     padding-top: 13px;
+    width: 1000px;
 }
 
 .hiddenReviewContainer {
@@ -155,6 +156,7 @@
 
 .reviewDescription {
     font-size: 14pt;
+    word-wrap: break-word;
 }
 
 .reviewUser {
