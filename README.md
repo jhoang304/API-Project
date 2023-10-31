@@ -1,9 +1,8 @@
-<!--!!START SILENT -->
 # BobaBnB
-<!--!!END -->
-<!--!!ADD -->
-<!-- # `<name of application here>` -->
-<!--!!END_ADD -->
+https://joshua-auth-me.onrender.com
+
+* BobaBnB is a web application based on the idea of AirBnB
+
 
 ## Database Schema Design
 
