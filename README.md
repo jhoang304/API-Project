@@ -1,7 +1,7 @@
 # BobaBnB
 https://joshua-auth-me.onrender.com
 
-* BobaBnB is a web application based on the idea of AirBn
+* BobaBnB is a web application based on the idea of AirBnB
 
 
 ## Database Schema Design
