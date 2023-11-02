@@ -7,6 +7,10 @@ https://joshua-auth-me.onrender.com
 
 BobaBnb is a platform where users can create spots and leave reviews for them. The full-stack application is built with React, Redux, Express, Sequelize, and PostgresSQL. Some functionalities include:
 
+* User authentication and authorization
+* Creating, reading, editing, deleting spots
+* Creating, reading, editing, deleting reviews
+
 
 
 
