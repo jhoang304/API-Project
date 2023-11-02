@@ -3,6 +3,12 @@ https://joshua-auth-me.onrender.com
 
 * BobaBnB is a web application based on the idea of AirBnB
 
+## Introduction
+
+BobaBnb is a platform where users can create spots and leave reviews for them. The full-stack application is built with React, Redux, Express, Sequelize, and PostgresSQL. Some functionalities include:
+
+
+
 
 ## Database Schema Design
 
