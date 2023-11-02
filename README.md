@@ -11,7 +11,10 @@ BobaBnb is a platform where users can create spots and leave reviews for them. T
 * Creating, reading, editing, deleting spots
 * Creating, reading, editing, deleting reviews
 
-
+Future Functionalities:
+* Search for spots
+* Creating, reading, editing, deleting bookings
+* Profile page  
 
 
 ## Database Schema Design
